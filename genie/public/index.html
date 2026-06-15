@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CML zones calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+
+<div class="container">
+    <input type="radio" name="tab" id="tab1" checked>
+    <label for="tab1">Zones calculator</label>
+    <input type="radio" name="tab" id="tab2">
+    <label for="tab2">Order generator</label>
+    <input type="radio" name="tab" id="tab3">
+    <label for="tab3">Simulation</label>
+    <div class="content1" id="content1">
+        <h3>Sales table</h3>
+    
+    
+        <p id="orders_text">Loading...</p>
+        <input type="file" id="orders_file">
+        <button onclick="upload('#orders_status', '#orders_file', 'order_history', update_status)">Upload new sales table</button>
+        <span id="orders_status"></span>
+        <hr>
+        <h3>Parameters table</h3>
+        <p><a href="/parameters.xlsx">Table example</a>. <span id="params_text">Loading...</span></p>
+        <input type="file" id="params_file">
+        <button onclick="upload('#params_status', '#params_file', 'parameters', update_status)">Upload new parameters table</button>
+        <span id="params_status"></span>
+        <hr>
+        <h3>Zones table</h3>
+
+        <p id="ddmpr_text">Loading...</p>
+        <a href="/download_zones" style="visibility: none;" id="ddmrp_link">Download (all locations)</a>
+        <br>
+        <a href="/download_zones_sofia" style="visibility: none;" id="ddmrp_link2">Download (only Sofia)</a>
+        <hr>
+        <h3>Statistics</h3>
+        <p id="stats_text">Loading...</p>
+        <a href="/statistics" target="_blank" style="visibility: none;" id="stats_link">Statistics (all locations)</a>
+        <br>
+        <a href="/statistics_sofia" target="_blank" style="visibility: none;" id="stats_link2">Statistics (only Sofia)</a>
+        <hr>
+        <button onclick="fetch('/erase', { method: 'POST' }).then(() => update_status());">Erase tables from the server</button>
+    </div>
+    <div class="content2" id="content2">
+        <h3>Zones table</h3>
+        <p> Use a table, which is generated in zones calculator (for Sofia) with filled order position. Alterantively, use the <a href="/order_generator.xlsx">example table</a>.</p>
+        <form action="/order_generator" method="POST" enctype="multipart/form-data">
+            <input type="file" name="table" />
+            <button type="submit">Generate order table</button>
+        </form>
+    </div>
+
+    <div class="content3" id="content3">
+        <h3>Sales table</h3>
+        <p id="orders2_text">Loading...</p>
+        <input type="file" id="orders2_file">
+        <button onclick="upload('#orders2_status', '#orders2_file', 'order_history2', update_status)">Upload new sales table</button>
+        <span id="orders2_status"></span>
+        <hr>
+        <h3>Zones table</h3>
+        <p> Use a table, which is generated in zones calculator (for all locations) with filled on-hand inventory.</p>
+        <p id="ddmrp_text">Loading...</p>
+        <input type="file" id="ddmrp_file">
+        <button onclick="upload('#ddmrp_status', '#ddmrp_file', 'simulator_ddmrp', update_status)">Upload new zones table</button>
+        <span id="ddmrp_status"></span>
+        <hr>
+        <h3>Simulation results</h3>
+        <p id="stats2_text">Loading...</p>
+        <div id="simulator_links">
+
+        </div>
+        <br>
+        <hr>
+        <button onclick="fetch('/erase2', { method: 'POST' }).then(() => update_status());">Erase tables from the server</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {
+    update_status();
+});
+</script>
+
+</body>
+</html>

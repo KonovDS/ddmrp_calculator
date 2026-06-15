@@ -1,0 +1,51 @@
+.content1,
+.content2,
+.content3 {
+    display: none;
+    padding: 20px;
+    border-top: 2px solid #999999;
+}
+
+input[type='radio'] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+label {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 30px;
+    background-color: #dddddd;
+    border-style: solid solid none solid;
+    border-width: 2px;
+    border-color: transparent;
+    font-size: large;
+}
+
+#tab1:checked+label {
+    border-color: #999999;
+}
+
+#tab2:checked+label {
+    border-color: #999999;
+}
+
+#tab3:checked+label {
+    border-color: #999999;
+}
+
+#tab1:checked~.content1 {
+    display: block;
+}
+
+#tab2:checked~.content2 {
+    display: block;
+}
+
+#tab3:checked~.content3 {
+    display: block;
+}
