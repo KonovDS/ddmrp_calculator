@@ -1,4 +1,4 @@
-# DDMRP Calculator for CML JCB
+# DDMRP Calculator
 
 > **Note:** This is the public, open-source portion of the project. The private repository contains proprietary client data, internal configuration and final version of the tool that cannot be shared.
 
