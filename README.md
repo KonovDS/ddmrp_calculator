@@ -1,6 +1,6 @@
 # DDMRP Calculator for CML JCB
 
-> **Note:** This is the public, open-source portion of the project. The private repository contains proprietary client data and internal configuration that cannot be shared.
+> **Note:** This is the public, open-source portion of the project. The private repository contains proprietary client data, internal configuration and final version of the tool that cannot be shared.
 
 A web application implementing a [Demand-Driven MRP](https://ddmrp.com/) restock strategy for an authorized heavy machinery distributor and service provider.
 
@@ -10,16 +10,16 @@ Built in Julia using [Genie.jl](https://genieframework.com/).
 
 - **Zones Calculator** — uploads historical sales data and per-SKU parameters, computes DDMRP buffer zones (red / yellow / green), and exports results as `.xlsx`
 - **Order Generator** — given current stock levels, determines which SKUs need replenishment and generates an order file
-- **Simulation** — replays historical demand against computed buffer zones and renders interactive per-SKU charts
+- **Simulation** — replays historical demand against computed buffer zones and renders per-SKU charts
 
 ## Documents
 
-- [`stochastic_intro.pdf`](stochastic_intro.pdf) — background on the stochastic demand model used for zone sizing
-- [`cml_presentation.pdf`](cml_presentation.pdf) — project presentation to management
+- [`stochastic_intro.pdf`](stochastic_intro.pdf) — Mathematical background on the simplified stochastic demand model
+- [`cml_presentation.pdf`](cml_presentation.pdf) — Project presentation to management
 
 ## Screenshots
 
-> The application shown below is a final, unpublished version of the tool — its source code is not part of this repository.
+The application shown below is a final, unpublished version of the tool.
 
 ![Zones Calculator upload screen](screenshots/1.png)
 
